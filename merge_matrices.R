@@ -19,7 +19,7 @@ workdir <- opt$input
 sampleid <- opt$sample_id
 setwd(workdir)
 
-files <- list.files(path = workdir, pattern = "\\.rds$", full.names = TRUE)
+files <- list.files(path = workdir, pattern = "\\_table.rds$", full.names = TRUE)
 data_list = lapply(files, function (x) data.table(readRDS(x)))
 hcc_final <- reduce(data_list, full_join, by = "bins")
 
@@ -29,5 +29,3 @@ rownames(x2) <- hcc_final[,1]
 # matrix and sparse matrix
 mat1 <- as.matrix(x2)
 saveRDS(mat1, file=(paste0(sampleid,"_final_fullmatrix.rds")))
-#sparse_mat1 <- Matrix(mat1, sparse = TRUE)
-#saveRDS(sparse_mat1, file=(paste0(sampleid,"_final_sparsematrix.rds")))

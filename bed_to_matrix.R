@@ -1,5 +1,4 @@
 library(optparse)
-#library(Matrix)
 
 # optparse
 option_list <- list(make_option(c("-i", "--input"), default="NA"))
@@ -24,7 +23,7 @@ rownames(x2) <- y[,1]
 
 colnames(y) <- c("bins",wigbed_basename)
 
-# matrix and sparse matrix
+# matrix 
 mat1 <- as.matrix(x2)
 print("Total count of 0s in matrix:")
 colSums(mat1 == 0)
@@ -32,8 +31,10 @@ colSums(mat1 == 0)
 print("Percentage of 0s in matrix:")
 (colSums(mat1 == 0)/nrow(mat1))*100
 
-#sparse_mat1 <- Matrix(mat1, sparse = TRUE)
-saveRDS(mat1, file=(paste0(wigbed_basename,"_matrix.rds")))
+saveRDS(y, file=(paste0(wigbed_basename,"_table.rds")))
+
+# uncomment this line you would like to have the matrix instead of table
+# saveRDS(mat1, file=(paste0(wigbed_basename,"_matrix.rds")))
 
 # plot
 png(paste0("plots/",wigbed_basename,".png"))
