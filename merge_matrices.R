@@ -1,7 +1,7 @@
 library(optparse)
-library(Matrix)
 require(data.table)
 require(tidyverse)
+#library(Matrix)
 
 # optparse
 option_list <- list(make_option(c("-i", "--input"), default="NA"), make_option(c("-s","--sample_id", default="HCC_all")))
