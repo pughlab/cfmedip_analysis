@@ -1,7 +1,6 @@
 library(optparse)
 require(data.table)
 require(tidyverse)
-#library(Matrix)
 
 # optparse
 option_list <- list(make_option(c("-i", "--input"), default="NA"), make_option(c("-s","--sample_id", default="HCC_all")))
@@ -26,6 +25,6 @@ hcc_final <- reduce(data_list, full_join, by = "bins")
 x2 <- data.frame(hcc_final[,-1])
 rownames(x2) <- hcc_final[,1]
 
-# matrix and sparse matrix
+# matrix
 mat1 <- as.matrix(x2)
 saveRDS(mat1, file=(paste0(sampleid,"_final_fullmatrix.rds")))
