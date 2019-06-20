@@ -24,6 +24,7 @@ hcc_final <- reduce(data_list, full_join, by = "bins")
 
 x2 <- data.frame(hcc_final[,-1])
 rownames(x2) <- hcc_final[,1]
+colnames(x2) <- gsub(".wig.bed", "", colnames(x2))
 
 # matrix
 mat1 <- as.matrix(x2)
