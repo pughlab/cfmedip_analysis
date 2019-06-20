@@ -1,6 +1,8 @@
 # cfMeDIP Analysis 
+### Maintainer 
+Suluxan Mohanraj suluxan.mohanraj@uhnresearch.ca
 
-## PRE-PROCESSING:
+## PRE-PROCESSING
 ### Dependencies 
 |      Tool     |    Version    |      Info     |
 | ------------- | ------------- | ------------- |
@@ -26,3 +28,4 @@ The cfmedip_preprocessing.sh script is the only script that needs a change. The 
 The first Rscript transforms the bed files to tables (can uncomment a line to create matrices as well for individual samples). 
 
 The second Rscript merges all "_table.rds" files in the directory into a large matrix of bins by samples. 
+
